@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Главная</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body {
+      background: #2f343a;
+      color: #f2f2f2;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wrap { text-align: center; padding: 24px; max-width: 520px; } /* тот же max-width, что на contacts */
+    .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #3a4047;
+      color: #fff; text-decoration: none; font-weight: 600;
+      border: 1px solid #4a5159;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { background: #444b53; box-shadow: 0 6px 14px rgba(0,0,0,.35); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .card {
+      text-align: left;
+      background: #363c43;
+      border: 1px solid #4a5159;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px auto 0;
+    }
+    .card p { margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Главная</h1>
+
+    <section class="card" aria-label="Информация">
+      <p>Это главная страница.</p>
+    </section>
+
+    <div class="buttons">
+      <a class="btn" href="{% url 'catalog:home' %}">Главная</a>
+      <a class="btn" href="{% url 'catalog:contacts' %}">Контакты</a>
+    </div>
+  </main>
+</body>
+</html>
