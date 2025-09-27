@@ -1,0 +1,16 @@
+[
+  {"model":"catalog.product","pk":1,"fields":{"name":"Ultrabook Air 13","description":"Лёгкий и автономный","image":"","category":1,"price":"999.99","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":2,"fields":{"name":"Gaming Beast 15","description":"Игровой ноутбук","image":"","category":1,"price":"1499.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":3,"fields":{"name":"WorkPro 14","description":"Для офиса и учебы","image":"","category":1,"price":"849.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":4,"fields":{"name":"Creator 16","description":"Для монтажа и дизайна","image":"","category":1,"price":"1799.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+
+  {"model":"catalog.product","pk":5,"fields":{"name":"Phone Lite","description":"Бюджетный смартфон","image":"","category":2,"price":"249.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":6,"fields":{"name":"Phone Plus","description":"Сбалансированный","image":"","category":2,"price":"499.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":7,"fields":{"name":"Phone Pro","description":"Флагман","image":"","category":2,"price":"999.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":8,"fields":{"name":"Phone Max","description":"Большой экран","image":"","category":2,"price":"799.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+
+  {"model":"catalog.product","pk":9,"fields":{"name":"Headset Studio","description":"Охватывающие, проводные","image":"","category":3,"price":"199.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":10,"fields":{"name":"Earbuds Sport","description":"TWS для спорта","image":"","category":3,"price":"99.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":11,"fields":{"name":"Earbuds Pro","description":"ANC, кейс зарядки","image":"","category":3,"price":"179.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.product","pk":12,"fields":{"name":"Gaming Headset X","description":"С микрофоном","image":"","category":3,"price":"129.00","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}}
+]
