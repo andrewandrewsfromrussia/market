@@ -2,7 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 def home(request):
-    return render(request, "home.html")
+    products = (
+        Product.objects
+        .only("id", "name", "image", "price", "description", "updated_at")
+        .order_by("-updated_at")
+    )
+    return render(request, "catalog/home.html", {"products": products})
 
 def contacts(request):
     return render(request, "contacts.html")
