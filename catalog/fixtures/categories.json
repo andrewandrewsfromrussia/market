@@ -1,0 +1,6 @@
+[
+  {"model":"catalog.category","pk":1,"fields":{"name":"Ноутбуки","description":"Портативные компьютеры","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.category","pk":2,"fields":{"name":"Смартфоны","description":"Мобильные телефоны","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.category","pk":3,"fields":{"name":"Наушники","description":"Аудио гарнитуры","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}},
+  {"model":"catalog.category","pk":4,"fields":{"name":"Планшеты","description":"Планшетные ПК","created_at":"2025-01-01T00:00:00Z","updated_at":"2025-01-01T00:00:00Z"}}
+]
