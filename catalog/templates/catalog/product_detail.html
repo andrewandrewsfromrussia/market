@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>{{ product.name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+  <header>
+    {# 'home' добавим на шаге 2 #}
+    <a href="{% url 'home' %}">← На главную</a>
+  </header>
+
+  <main>
+    <h1>{{ product.name }}</h1>
+
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width:400px;height:auto;">
+    {% endif %}
+
+    <p><strong>Цена:</strong> {{ product.price }} ₽</p>
+
+    {% if product.category %}
+      <p><strong>Категория:</strong> {{ product.category }}</p>
+    {% endif %}
+
+    {% if product.description %}
+      <h3>Описание</h3>
+      <p>{{ product.description }}</p>
+    {% endif %}
+
+    <p style="color:#666;font-size:0.9em;">
+      Создано: {{ product.created_at|date:"d.m.Y H:i" }},
+      Обновлено: {{ product.updated_at|date:"d.m.Y H:i" }}
+    </p>
+  </main>
+
+  <footer>
+    <p>© {% now "Y" %}</p>
+  </footer>
+</body>
+</html>
