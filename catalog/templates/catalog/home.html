@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+  <h1 class="display-6 fw-semibold mb-4">Товары</h1>
+
+  <div class="row g-4">
+    {% for p in products %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <article class="card card-bg h-100 shadow-sm">
+          {% if p.image %}
+            <a href="{% url 'catalog:product_detail' p.pk %}">
+              <img class="card-img-top img-cover" src="{{ p.image.url }}" alt="{{ p.name }}">
+            </a>
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h2 class="h6 card-title mb-1">
+              <a class="link-light text-decoration-none" href="{% url 'catalog:product_detail' p.pk %}">{{ p.name }}</a>
+            </h2>
+            <div class="mb-2 muted">{{ p.price }} ₽</div>
+
+            {% with txt=p.description|default:"" %}
+              <p class="card-text small flex-grow-1">
+                {{ txt|slice:":100" }}{% if txt|length > 100 %}…{% endif %}
+              </p>
+            {% endwith %}
+
+            <div class="mt-2">
+              <a class="btn btn-warning btn-sm text-dark fw-semibold w-100 btn-glow"
+                 href="{% url 'catalog:product_detail' p.pk %}">Подробнее</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    {% empty %}
+      <div class="col">
+        <div class="alert alert-secondary text-dark">Пока нет товаров.</div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
