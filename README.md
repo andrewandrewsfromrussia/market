@@ -64,17 +64,17 @@
 
 - Модель BlogPost с полями:
 
-- -  `title` — заголовок`
+- -  `title` — заголовок
 
-- - `content` — содержимое`
+- - `content` — содержимое
 
-- - `preview` — изображение-превью`
+- - `preview` — изображение-превью
 
-- - `created_at` — дата создания`
+- - `created_at` — дата создания
 
-- - `is_published` — флаг публикации`
+- - `is_published` — флаг публикации
 
-- - `views` — счётчик просмотров`
+- - `views` — счётчик просмотров
 
 - Реализован полный CRUD через CBV (ListView, DetailView, CreateView, UpdateView, DeleteView).
 

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Удалить продукт{% endblock %}
+
+{% block content %}
+  <div class="container py-4">
+    <h1 class="display-6 fw-semibold mb-4">Удалить продукт</h1>
+
+    <div class="alert alert-warning">
+      Вы действительно хотите удалить продукт: <strong>{{ object.name }}</strong>?
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger btn-glow text-light fw-semibold">Удалить</button>
+      <a href="{% url 'catalog:home' %}" class="btn btn-secondary ms-2">Отмена</a>
+    </form>
+  </div>
+{% endblock %}
