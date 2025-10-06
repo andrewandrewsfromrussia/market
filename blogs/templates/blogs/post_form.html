@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "includes/_menu.html" %}
+<div class="container py-4">
+  <h1 class="mb-3">{% if object %}Редактировать{% else %}Создать{% endif %} запись</h1>
+  <form method="post" enctype="multipart/form-data" class="row g-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Сохранить</button>
+      {% if object %}<a class="btn btn-outline-secondary" href="{{ object.get_absolute_url }}">Отмена</a>{% else %}<a class="btn btn-outline-secondary" href="{% url 'blogs:list' %}">Отмена</a>{% endif %}
+    </div>
+  </form>
+</div>
+{% endblock %}
