@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ view.object|yesno:"Редактировать товар,Создать товар" }}{% endblock %}
+
+{% block content %}
+  <h1 class="h4 mb-3">{{ view.object|yesno:"Редактировать товар,Создать товар" }}</h1>
+  <form method="post" enctype="multipart/form-data" class="card bg-dark text-light shadow-sm">
+    <div class="card-body">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% if field.help_text %}<div class="form-text text-muted">{{ field.help_text }}</div>{% endif %}
+          {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+        </div>
+      {% endfor %}
+      <div class="d-flex gap-2">
+        <button class="btn btn-warning text-dark fw-semibold" type="submit">Сохранить</button>
+        <a class="btn btn-secondary" href="{% if view.object %}{% url 'catalog:product_detail' view.object.pk %}{% else %}{% url 'catalog:home' %}{% endif %}">Отмена</a>
+      </div>
+    </div>
+  </form>
+{% endblock %}

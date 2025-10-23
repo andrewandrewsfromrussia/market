@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+
 
 class Category(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Наименование")
@@ -23,6 +25,12 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена за покупку")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Обновлено")
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="products",
+        null=True, blank=True,
+    )
 
     class Meta:
         verbose_name = "Продукт"

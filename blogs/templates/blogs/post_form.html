@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-{% include "includes/_menu.html" %}
 <div class="container py-4">
   <h1 class="mb-3">{% if object %}Редактировать{% else %}Создать{% endif %} запись</h1>
   <form method="post" enctype="multipart/form-data" class="row g-3">
