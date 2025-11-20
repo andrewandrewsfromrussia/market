@@ -17,6 +17,10 @@ from django.views.generic import (
 )
 
 from .models import Product
+from django.conf import settings
+from django.core.cache import cache
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 
 class ProductListView(ListView):
@@ -25,7 +29,7 @@ class ProductListView(ListView):
     context_object_name = "products"
 
     def get_queryset(self):
-        return (
+        queryset =  (
             Product.objects
             .only(
                 "id",
@@ -39,6 +43,17 @@ class ProductListView(ListView):
             )
             .order_by("-updated_at")
         )
+
+        if not getattr(settings, "CACHE_ENABLED", False):
+            return queryset
+
+        cache_key = "products_list"
+        cached = cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        cache.set(cache_key, queryset, 300)
+        return queryset
 
 
 class OwnerRequiredMixin(UserPassesTestMixin):
@@ -103,6 +118,7 @@ class ContactsView(TemplateView):
     template_name = "catalog/contacts.html"
 
 
+@method_decorator(cache_page(300), name="dispatch")
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = "catalog/product_detail.html"
