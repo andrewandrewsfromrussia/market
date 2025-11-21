@@ -16,7 +16,8 @@ from django.views.generic import (
     View,
 )
 
-from .models import Product
+from .models import Product, Category
+from .services import get_products_by_category
 from django.conf import settings
 from django.core.cache import cache
 from django.utils.decorators import method_decorator
@@ -54,6 +55,22 @@ class ProductListView(ListView):
 
         cache.set(cache_key, queryset, 300)
         return queryset
+
+
+class CategoryProductListView(ListView):
+    model = Product
+    template_name = "catalog/category_products.html"
+    context_object_name = "products"
+
+    def get_queryset(self):
+        category_id = self.kwargs.get("category_id")
+        return get_products_by_category(category_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category_id = self.kwargs.get("category_id")
+        context["category"] = Category.objects.only("id", "name").get(pk=category_id)
+        return context
 
 
 class OwnerRequiredMixin(UserPassesTestMixin):
